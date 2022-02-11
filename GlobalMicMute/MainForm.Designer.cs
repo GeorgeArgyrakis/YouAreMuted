@@ -61,10 +61,10 @@ namespace GlobalMicMute
             this.button2.Location = new System.Drawing.Point(1, 1);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Padding = new System.Windows.Forms.Padding(4);
             this.button2.Size = new System.Drawing.Size(64, 64);
             this.button2.TabIndex = 2;
-            this.toolTip1.SetToolTip(this.button2, "CTRL+SHIT+M");
+            this.toolTip1.SetToolTip(this.button2, "CTRL+SHIFT+M");
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
@@ -147,7 +147,6 @@ namespace GlobalMicMute
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Mics";
-            this.toolTip1.SetToolTip(this, "CTRL+SHIFT+M");
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.White;
             this.contextMenuStrip1.ResumeLayout(false);
