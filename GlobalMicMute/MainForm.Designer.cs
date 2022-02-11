@@ -41,8 +41,8 @@ namespace GlobalMicMute
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showOutlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -59,9 +59,10 @@ namespace GlobalMicMute
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button2.Location = new System.Drawing.Point(1, 1);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(5);
-            this.button2.Size = new System.Drawing.Size(73, 85);
+            this.button2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Size = new System.Drawing.Size(64, 64);
             this.button2.TabIndex = 2;
             this.toolTip1.SetToolTip(this.button2, "CTRL+SHIT+M");
             this.button2.UseVisualStyleBackColor = false;
@@ -81,26 +82,26 @@ namespace GlobalMicMute
             this.toolStripSeparator2,
             this.settingsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(218, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 120);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Image = global::GlobalMicMute.Properties.Resources.Close_red_16x;
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.testToolStripMenuItem.Text = "Exit";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(214, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(184, 6);
             // 
             // moveToolStripMenuItem
             // 
             this.moveToolStripMenuItem.Image = global::GlobalMicMute.Properties.Resources.MoveGlyph_16x;
             this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
-            this.moveToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.moveToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.moveToolStripMenuItem.Text = "Move";
             this.moveToolStripMenuItem.Click += new System.EventHandler(this.moveToolStripMenuItem_Click);
             // 
@@ -109,42 +110,44 @@ namespace GlobalMicMute
             this.showOutlineToolStripMenuItem.Checked = true;
             this.showOutlineToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.showOutlineToolStripMenuItem.Name = "showOutlineToolStripMenuItem";
-            this.showOutlineToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.showOutlineToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.showOutlineToolStripMenuItem.Text = "Show Outline";
             this.showOutlineToolStripMenuItem.Click += new System.EventHandler(this.showOutlineToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(184, 6);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Image = global::GlobalMicMute.Properties.Resources.Help;
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(217, 26);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.settingsToolStripMenuItem.Text = "About YouAreMuted";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
-            // toolStripSeparator2
-            // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(214, 6);
-            // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(189, 200);
+            this.ClientSize = new System.Drawing.Size(165, 150);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.ControlBox = false;
             this.Controls.Add(this.button2);
             this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "MainForm";
             this.Opacity = 0.75D;
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Mics";
+            this.toolTip1.SetToolTip(this, "CTRL+SHIFT+M");
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.White;
             this.contextMenuStrip1.ResumeLayout(false);
