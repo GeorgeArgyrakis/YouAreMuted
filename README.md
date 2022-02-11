@@ -1,4 +1,4 @@
-  ![Logo](/GlobalMicMute/Resources/microphone.png) 
+ ![Logo](/GlobalMicMute/Resources/microphone.png) 
  # YouAreMuted 
 Tired of people telling you that "You are muted!" on online meettings? Use this simple program to easily mute / unmute all mics and have a visual feeedback on your screen.
 
@@ -17,3 +17,8 @@ Tired of people telling you that "You are muted!" on online meettings? Use this 
 * Unzip file YouAreMuted-xxxx.zip to a folder
 * Run YouAreMuted.exe
 * Optional: Pin to taskbar for easy access
+
+## Screenshots
+![dasdad](/Screenshots/Screenshot3.png)
+![dasdad](/Screenshots/Screenshot1.png) 
+![dasdad](/Screenshots/Screenshot2.png) 
