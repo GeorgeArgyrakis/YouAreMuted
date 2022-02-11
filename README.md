@@ -9,3 +9,11 @@ Tired of people telling you that "You are muted!" on online meettings? Use this 
 * Visual Feedback on screen
 * Support multiple monitors
 * Auto detect new devices
+
+## Download
+[Get latetest release here](https://github.com/GeorgeArgyrakis/YouAreMuted/releases/latest)
+
+## Usage
+* Unzip file YouAreMuted-xxxx.zip to a folder
+* Run YouAreMuted.exe
+* Optional: Pin to taskbar for easy access
