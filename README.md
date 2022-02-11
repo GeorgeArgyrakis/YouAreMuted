@@ -16,6 +16,8 @@ Tired of people telling you that "You are muted!" on online meettings? Use this 
 ## Usage
 * Unzip file YouAreMuted-xxxx.zip to a folder
 * Run YouAreMuted.exe
+* Left click on mic to mute / unmute
+* Right click o mic for options
 * Optional: Pin to taskbar for easy access
 
 ## Screenshots
