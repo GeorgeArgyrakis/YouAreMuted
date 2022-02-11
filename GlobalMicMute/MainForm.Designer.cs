@@ -51,7 +51,7 @@ namespace GlobalMicMute
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.BackColor = System.Drawing.Color.Transparent;
             this.button2.BackgroundImage = global::GlobalMicMute.Properties.Resources.mic_green;
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.button2.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
@@ -62,7 +62,7 @@ namespace GlobalMicMute
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
             this.button2.Padding = new System.Windows.Forms.Padding(4);
-            this.button2.Size = new System.Drawing.Size(64, 64);
+            this.button2.Size = new System.Drawing.Size(66, 66);
             this.button2.TabIndex = 2;
             this.toolTip1.SetToolTip(this.button2, "CTRL+SHIFT+M");
             this.button2.UseVisualStyleBackColor = false;
