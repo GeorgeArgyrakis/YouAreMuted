@@ -8,6 +8,9 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>Resources\mic.ico</ApplicationIcon>
     <AssemblyName>YouAreMuted</AssemblyName>
+    <PackageId />
+    <ProduceReferenceAssembly>True</ProduceReferenceAssembly>
+	  <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,9 +19,15 @@
 
   <ItemGroup>
     <PackageReference Include="NAudio" Version="2.0.1" />
+    <PackageReference Include="System.IO.Ports" Version="6.0.2-mauipre.1.22054.8" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Properties\AssemblyInfo.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>AssemblyInfo.tt</DependentUpon>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -32,5 +41,21 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Properties\AssemblyInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>AssemblyInfo.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+  </ItemGroup>
+
+  <Target Name="PreBuild" BeforeTargets="PreBuildEvent">
+    <Exec Command="&quot;$(DevEnvDir)TextTransform.exe&quot; -a !!BuildConfiguration!$(Configuration) &quot;$(ProjectDir)Properties\AssemblyInfo.tt&quot;" />
+  </Target>
+
 
 </Project>
