@@ -1,6 +1,7 @@
 using GlobalMicMute.Tools.utils;
 using GlobalMicMute.Tools.win32;
 using NAudio.CoreAudioApi;
+using System.IO.Ports;
 
 namespace GlobalMicMute
 {
@@ -15,8 +16,9 @@ namespace GlobalMicMute
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
-
+        private bool useArduino = false;
         private bool showOutline = true;
+        private Arduino arduino;
 
         public MainForm()
         {
@@ -34,9 +36,10 @@ namespace GlobalMicMute
             {
                 statusRects.Add(new ScreenBoundingRectangle() { Color = System.Drawing.Color.Red, LineWidth = 10, Location = screen.Bounds, Opacity = 0.5, Visible = true });
             };
+
+          //  arduino = new Arduino("COM6", 9600, new SerialDataReceivedEventHandler(DataReceivedHandler));
+            arduino = new Arduino();
             updateUI();
-
-
             foreach (InputDevice inputDevice in InputDevice.GetInputDevices())
             {
                 var handler = new DeviceVolumeNotificationHandler(inputDevice.Device.ID);
@@ -48,6 +51,18 @@ namespace GlobalMicMute
             Location = new Point(Screen.PrimaryScreen.Bounds.Right - button2.Width - 20, Screen.PrimaryScreen.Bounds.Top + 20);
 
         }
+
+        private void DataReceivedHandler(
+               object sender,
+               SerialDataReceivedEventArgs e)
+        {
+            SerialPort sp = (SerialPort)sender;
+            string indata = sp.ReadLine();
+            System.Diagnostics.Debug.WriteLine("Data Received:"+indata);
+            muteUnmuteAll();
+        }
+
+
         public bool allMuted;
         public bool someMuted;
 
@@ -57,7 +72,7 @@ namespace GlobalMicMute
             checkDevicesStatus();
             updateButton();
             updateRectangles();
-
+            arduino.sendCommandToSerial(allMuted);
         }
 
         private void updateRectangles()
@@ -136,12 +151,10 @@ namespace GlobalMicMute
 
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
-  //          if (e.Button == MouseButtons.Right)
-  //          {
-             //   dragging = true;
-                dragCursorPoint = Cursor.Position;
-                dragFormPoint = this.FindForm().Location;
-  //          }
+
+            dragCursorPoint = Cursor.Position;
+            dragFormPoint = this.FindForm().Location;
+
         }
 
         private void button2_MouseMove(object sender, MouseEventArgs e)
@@ -161,12 +174,10 @@ namespace GlobalMicMute
 
         protected override void WndProc(ref Message m)
         {
-            // 5. Catch when a HotKey is pressed !
+
             if (m.Msg == NativeMethods.WM_HOTKEY)
             {
                 int id = m.WParam.ToInt32();
-                // MessageBox.Show(string.Format("Hotkey #{0} pressed", id));
-
                 if (id == 1)
                 {
                     muteUnmuteAll();
