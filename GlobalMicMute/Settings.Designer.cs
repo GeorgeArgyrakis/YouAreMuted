@@ -34,5 +34,17 @@ namespace GlobalMicMute {
                 this["showOutline"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("None")]
+        public string comPort {
+            get {
+                return ((string)(this["comPort"]));
+            }
+            set {
+                this["comPort"] = value;
+            }
+        }
     }
 }

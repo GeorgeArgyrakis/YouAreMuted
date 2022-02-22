@@ -9,36 +9,58 @@ namespace GlobalMicMute
 {
     public class Arduino
     {
-        private static SerialPort port;
-       
+        private SerialPort Port { get; set; }
+        private SerialDataReceivedEventHandler DataReceivedHandler;
+        private string ComPort;
+        private int Baud;
+        private bool IsInit = false;
+
         public Arduino(string serialPort, int baud, SerialDataReceivedEventHandler dataReceivedHandler)
         {
-            SetupSerialComm(serialPort, baud);
-            port.DataReceived += dataReceivedHandler;
+            ComPort = serialPort;
+            Baud = baud;    
+            DataReceivedHandler = dataReceivedHandler;
+            if (ComPort != "none")
+                SetupSerialComm(ComPort, Baud);
+            
         }
 
         public Arduino()
         {
             // dummy
         }
-        private void SetupSerialComm(string p, int b)
+        public bool SetupSerialComm(string p, int b)
         {
-            port = new SerialPort(p, b);
-            port.DtrEnable = true;
-            port.Open();
+            try
+            {   
+                if (Port != null) {
+                   Port.Dispose();
+                }
+                Port = new SerialPort(p, b);
+                Port.DtrEnable = true;
+                Port.Open();
+                Port.DataReceived += DataReceivedHandler;
+                IsInit = true;
+            }
+            catch (Exception)
+            {
+
+               IsInit = false; 
+            }
+            return IsInit;
         }
 
         public void sendCommandToSerial(bool allMuted)
         {
-            if (port != null)
+            if (IsInit)
             {
                 switch (allMuted)
                 {
                     case true:
-                        port.Write("1");
+                        Port.Write("1");
                         break;
                     case false:
-                        port.Write("0");
+                        Port.Write("0");
                         break;
                 }
             }

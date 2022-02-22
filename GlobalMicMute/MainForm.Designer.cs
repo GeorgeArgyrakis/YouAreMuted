@@ -69,7 +69,7 @@ namespace GlobalMicMute
             this.button2.Location = new System.Drawing.Point(1, 1);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button2.Padding = new System.Windows.Forms.Padding(4);
             this.button2.Size = new System.Drawing.Size(66, 66);
             this.button2.TabIndex = 2;
             this.toolTip1.SetToolTip(this.button2, "CTRL+SHIFT+M");
@@ -137,49 +137,52 @@ namespace GlobalMicMute
             this.arduinoToolStripMenuItem.Name = "arduinoToolStripMenuItem";
             this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.arduinoToolStripMenuItem.Text = "Arduino";
+            this.arduinoToolStripMenuItem.DropDownOpened += new System.EventHandler(this.arduinoToolStripMenuItem_DropDownOpened);
+            this.arduinoToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.arduinoToolStripMenuItem_DropDownItemClicked);
             // 
             // noneToolStripMenuItem
             // 
             this.noneToolStripMenuItem.Checked = true;
             this.noneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.noneToolStripMenuItem.Name = "noneToolStripMenuItem";
-            this.noneToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.noneToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.noneToolStripMenuItem.Text = "None";
+
             // 
             // cOM1ToolStripMenuItem
             // 
             this.cOM1ToolStripMenuItem.Name = "cOM1ToolStripMenuItem";
-            this.cOM1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM1ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cOM1ToolStripMenuItem.Text = "COM1";
             // 
             // cOM2ToolStripMenuItem
             // 
             this.cOM2ToolStripMenuItem.Name = "cOM2ToolStripMenuItem";
-            this.cOM2ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM2ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cOM2ToolStripMenuItem.Text = "COM2";
             // 
             // cOM3ToolStripMenuItem
             // 
             this.cOM3ToolStripMenuItem.Name = "cOM3ToolStripMenuItem";
-            this.cOM3ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM3ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cOM3ToolStripMenuItem.Text = "COM3";
             // 
             // cOM4ToolStripMenuItem
             // 
             this.cOM4ToolStripMenuItem.Name = "cOM4ToolStripMenuItem";
-            this.cOM4ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM4ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cOM4ToolStripMenuItem.Text = "COM4";
             // 
             // cOM5ToolStripMenuItem
             // 
             this.cOM5ToolStripMenuItem.Name = "cOM5ToolStripMenuItem";
-            this.cOM5ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM5ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cOM5ToolStripMenuItem.Text = "COM5";
             // 
             // cOM6ToolStripMenuItem
             // 
             this.cOM6ToolStripMenuItem.Name = "cOM6ToolStripMenuItem";
-            this.cOM6ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM6ToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cOM6ToolStripMenuItem.Text = "COM6";
             // 
             // toolStripSeparator2
