@@ -26,15 +26,16 @@ namespace GlobalMicMute
             notificationClient.SetHandleAction(() => updateUI());
             notifyClient = (NAudio.CoreAudioApi.Interfaces.IMMNotificationClient)notificationClient;
             deviceEnum.RegisterEndpointNotificationCallback(notifyClient);
-
+            retrieveSettings();
             InitializeComponent();
             HotKeys.RegisterGlobalHotKey(1, this.Handle, Keys.M, NativeMethods.MOD_CONTROL | NativeMethods.MOD_SHIFT);
+
 
             Screen[] screens = Screen.AllScreens;
             statusRects = new List<ScreenBoundingRectangle>();
             foreach (Screen screen in screens)
             {
-                statusRects.Add(new ScreenBoundingRectangle() { Color = System.Drawing.Color.Red, LineWidth = 10, Location = screen.Bounds, Opacity = 0.5, Visible = true });
+                statusRects.Add(new ScreenBoundingRectangle() { Color = System.Drawing.Color.Red, LineWidth = 10, Location = screen.Bounds, Opacity = 0.5, Visible = showOutline });
             };
 
           //  arduino = new Arduino("COM6", 9600, new SerialDataReceivedEventHandler(DataReceivedHandler));
@@ -50,6 +51,11 @@ namespace GlobalMicMute
             }
             Location = new Point(Screen.PrimaryScreen.Bounds.Right - button2.Width - 20, Screen.PrimaryScreen.Bounds.Top + 20);
 
+        }
+
+        private void retrieveSettings()
+        {
+            showOutline = Settings.Default.showOutline;
         }
 
         private void DataReceivedHandler(
@@ -202,6 +208,8 @@ namespace GlobalMicMute
         {
             showOutlineToolStripMenuItem.Checked = !showOutlineToolStripMenuItem.Checked;
             showOutline = showOutlineToolStripMenuItem.Checked;
+            Settings.Default.showOutline = showOutline;
+            Settings.Default.Save();
             updateRectangles();
         }
 
@@ -211,7 +219,10 @@ namespace GlobalMicMute
             aboutForm.ShowDialog();    
         }
 
-
+        private void stripMenuItem_onOpened(object sender, EventArgs e)
+        {
+            showOutlineToolStripMenuItem.Checked = showOutline;
+        }
 
         /*  Original update which also fills a listview
  *  

@@ -41,6 +41,14 @@ namespace GlobalMicMute
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showOutlineToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arduinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noneToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOM1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOM2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOM3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOM4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOM5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cOM6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1.SuspendLayout();
@@ -61,7 +69,7 @@ namespace GlobalMicMute
             this.button2.Location = new System.Drawing.Point(1, 1);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button2.Name = "button2";
-            this.button2.Padding = new System.Windows.Forms.Padding(4);
+            this.button2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button2.Size = new System.Drawing.Size(66, 66);
             this.button2.TabIndex = 2;
             this.toolTip1.SetToolTip(this.button2, "CTRL+SHIFT+M");
@@ -79,10 +87,12 @@ namespace GlobalMicMute
             this.toolStripSeparator1,
             this.moveToolStripMenuItem,
             this.showOutlineToolStripMenuItem,
+            this.arduinoToolStripMenuItem,
             this.toolStripSeparator2,
             this.settingsToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 120);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 146);
+            this.contextMenuStrip1.Opened += new System.EventHandler(this.stripMenuItem_onOpened);
             // 
             // testToolStripMenuItem
             // 
@@ -113,6 +123,64 @@ namespace GlobalMicMute
             this.showOutlineToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.showOutlineToolStripMenuItem.Text = "Show Outline";
             this.showOutlineToolStripMenuItem.Click += new System.EventHandler(this.showOutlineToolStripMenuItem_Click);
+            // 
+            // arduinoToolStripMenuItem
+            // 
+            this.arduinoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.noneToolStripMenuItem,
+            this.cOM1ToolStripMenuItem,
+            this.cOM2ToolStripMenuItem,
+            this.cOM3ToolStripMenuItem,
+            this.cOM4ToolStripMenuItem,
+            this.cOM5ToolStripMenuItem,
+            this.cOM6ToolStripMenuItem});
+            this.arduinoToolStripMenuItem.Name = "arduinoToolStripMenuItem";
+            this.arduinoToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
+            this.arduinoToolStripMenuItem.Text = "Arduino";
+            // 
+            // noneToolStripMenuItem
+            // 
+            this.noneToolStripMenuItem.Checked = true;
+            this.noneToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.noneToolStripMenuItem.Name = "noneToolStripMenuItem";
+            this.noneToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.noneToolStripMenuItem.Text = "None";
+            // 
+            // cOM1ToolStripMenuItem
+            // 
+            this.cOM1ToolStripMenuItem.Name = "cOM1ToolStripMenuItem";
+            this.cOM1ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM1ToolStripMenuItem.Text = "COM1";
+            // 
+            // cOM2ToolStripMenuItem
+            // 
+            this.cOM2ToolStripMenuItem.Name = "cOM2ToolStripMenuItem";
+            this.cOM2ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM2ToolStripMenuItem.Text = "COM2";
+            // 
+            // cOM3ToolStripMenuItem
+            // 
+            this.cOM3ToolStripMenuItem.Name = "cOM3ToolStripMenuItem";
+            this.cOM3ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM3ToolStripMenuItem.Text = "COM3";
+            // 
+            // cOM4ToolStripMenuItem
+            // 
+            this.cOM4ToolStripMenuItem.Name = "cOM4ToolStripMenuItem";
+            this.cOM4ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM4ToolStripMenuItem.Text = "COM4";
+            // 
+            // cOM5ToolStripMenuItem
+            // 
+            this.cOM5ToolStripMenuItem.Name = "cOM5ToolStripMenuItem";
+            this.cOM5ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM5ToolStripMenuItem.Text = "COM5";
+            // 
+            // cOM6ToolStripMenuItem
+            // 
+            this.cOM6ToolStripMenuItem.Name = "cOM6ToolStripMenuItem";
+            this.cOM6ToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.cOM6ToolStripMenuItem.Text = "COM6";
             // 
             // toolStripSeparator2
             // 
@@ -166,5 +234,13 @@ namespace GlobalMicMute
         private ToolStripMenuItem settingsToolStripMenuItem;
         private ToolStripMenuItem showOutlineToolStripMenuItem;
         private ToolStripSeparator toolStripSeparator2;
+        private ToolStripMenuItem arduinoToolStripMenuItem;
+        private ToolStripMenuItem noneToolStripMenuItem;
+        private ToolStripMenuItem cOM1ToolStripMenuItem;
+        private ToolStripMenuItem cOM2ToolStripMenuItem;
+        private ToolStripMenuItem cOM3ToolStripMenuItem;
+        private ToolStripMenuItem cOM4ToolStripMenuItem;
+        private ToolStripMenuItem cOM5ToolStripMenuItem;
+        private ToolStripMenuItem cOM6ToolStripMenuItem;
     }
 }
