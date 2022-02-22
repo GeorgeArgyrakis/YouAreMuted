@@ -17,8 +17,12 @@ namespace GlobalMicMute
         private Point dragCursorPoint;
         private Point dragFormPoint;
         private bool useArduino = false;
+        
         private bool showOutline = true;
+        private string comPort;
+
         private Arduino arduino;
+        private int BaudRate = 9600;
 
         public MainForm()
         {
@@ -38,8 +42,9 @@ namespace GlobalMicMute
                 statusRects.Add(new ScreenBoundingRectangle() { Color = System.Drawing.Color.Red, LineWidth = 10, Location = screen.Bounds, Opacity = 0.5, Visible = showOutline });
             };
 
-          //  arduino = new Arduino("COM6", 9600, new SerialDataReceivedEventHandler(DataReceivedHandler));
-            arduino = new Arduino();
+            arduino = new Arduino(comPort, BaudRate, new SerialDataReceivedEventHandler(DataReceivedHandler));
+          
+            //arduino = new Arduino();
             updateUI();
             foreach (InputDevice inputDevice in InputDevice.GetInputDevices())
             {
@@ -56,6 +61,7 @@ namespace GlobalMicMute
         private void retrieveSettings()
         {
             showOutline = Settings.Default.showOutline;
+            comPort = Settings.Default.comPort;
         }
 
         private void DataReceivedHandler(
@@ -213,6 +219,8 @@ namespace GlobalMicMute
             updateRectangles();
         }
 
+
+
         private void settingsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm aboutForm = new AboutForm();    
@@ -222,6 +230,51 @@ namespace GlobalMicMute
         private void stripMenuItem_onOpened(object sender, EventArgs e)
         {
             showOutlineToolStripMenuItem.Checked = showOutline;
+        }
+
+        private void arduinoToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            if (e.ClickedItem != null)
+            {
+                CheckSelected((ToolStripMenuItem)sender, e.ClickedItem);
+            }
+        }
+
+        private void CheckSelected(ToolStripMenuItem button, ToolStripItem selectedItem)
+        {
+            string portText = selectedItem.Text;
+            if (portText == "None")
+            {
+                comPort = portText;
+                Settings.Default.comPort = comPort;
+                Settings.Default.Save();
+                return;
+            }
+            if (arduino.SetupSerialComm(portText, BaudRate))
+            {
+                foreach (ToolStripMenuItem item in button.DropDownItems)
+                {
+                    item.Checked = (item.Name == selectedItem.Name) ? true : false;
+                }
+                comPort = portText;
+                Settings.Default.comPort = comPort;
+                Settings.Default.Save();
+            }
+
+        }
+
+        private void arduinoToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            foreach (ToolStripMenuItem item in ((ToolStripMenuItem)sender).DropDownItems)
+            {
+                if (item.Text == comPort)
+                {
+                    item.Checked = true;
+                } else
+                {
+                    item.Checked = false;   
+                }
+            }
         }
 
         /*  Original update which also fills a listview
