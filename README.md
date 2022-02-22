@@ -19,6 +19,10 @@ Tired of people telling you that "You are muted!" on online meettings? Use this 
 * Left click on mic to mute / unmute
 * Right click on mic for options
 * Optional: Pin to taskbar for easy access
+* 
+## Arduino
+* Arduino code included,  if you want to build something like that:
+[![Watch the video](https://img.youtube.com/vi/bqO1_U9-UqU/maxresdefault.jpg)](https://youtu.be/bqO1_U9-UqU)
 
 ## Screenshots
 ![dasdad](/Screenshots/Screenshot3.png)
