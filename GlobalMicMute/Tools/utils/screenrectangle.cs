@@ -33,6 +33,10 @@ namespace GlobalMicMute.Tools.utils
         //form used as a rectangle
         private Form _form;
 
+        const int GWL_EXSTYLE = -20;
+        const int WS_EX_LAYERED = 0x80000; // Clickthrough
+        const int WS_EX_TRANSPARENT = 0x20;
+
         public ScreenRectangle()
         {
             //initialize the form
@@ -51,8 +55,8 @@ namespace GlobalMicMute.Tools.utils
             _form.Opacity = 0.2;
 
             //set popup style
-            int num1 = UnsafeNativeMethods.GetWindowLong(_form.Handle, -20);
-            UnsafeNativeMethods.SetWindowLong(_form.Handle, -20, num1 | 0x80);
+            int style = UnsafeNativeMethods.GetWindowLong(_form.Handle, GWL_EXSTYLE);
+            UnsafeNativeMethods.SetWindowLong(_form.Handle, GWL_EXSTYLE, style | WS_EX_LAYERED | WS_EX_TRANSPARENT);
 
             _color = Color.Black;
         }
